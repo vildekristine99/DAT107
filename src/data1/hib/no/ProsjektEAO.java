@@ -1,9 +1,12 @@
 package data1.hib.no;
 
+import java.util.List;
+
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.EntityTransaction;
 import javax.persistence.Persistence;
+import javax.persistence.TypedQuery;
 
 public class ProsjektEAO {
 	private EntityManagerFactory emf;
@@ -75,17 +78,14 @@ public class ProsjektEAO {
 		
 		AnsattProsjekt ap = em.find(AnsattProsjekt.class, ansattProsjektId);
 		
+		List<Ansatt> ansatte;
+		
 		try {
-			tx.begin();
-			ap.leggTilTimer(timer);
-			em.merge(ap);
-			tx.commit();
-
-		} catch (Throwable e) {
-			e.printStackTrace();
-			if (tx.isActive()) {
-				tx.rollback();
-			}
+			TypedQuery<Ansatt> query = em.createQuery("SELECT t FROM Ansatt t", 
+					Ansatt.class);
+			ansatte = query.getResultList();
+			System.out.println(ansatte.toString());
+		
 		} finally {
 			em.close();
 		}
@@ -97,10 +97,10 @@ public class ProsjektEAO {
 		//Utskrift av info om prosjekt, inkl. liste av deltagere med rolle og timer, og totalt timetall for prosjektet
 		Prosjekt prosjekt = em.find(Prosjekt.class, prosjektId);
 		
+		
 		try {
 			tx.begin();
-			ap.leggTilTimer(timer);
-			em.merge(ap);
+			
 			tx.commit();
 
 		} catch (Throwable e) {
