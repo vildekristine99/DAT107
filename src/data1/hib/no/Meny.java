@@ -172,6 +172,11 @@ public class Meny {
 			break;
 			
 		case 12:
+			System.out.println("ProsjektId: ");
+			int prosjektid = sc.nextInt();
+			sc.nextLine();
+			
+			prosjektEAO.utskriftProsjekt(prosjektid);
 			break;
 			
 		case 13: 

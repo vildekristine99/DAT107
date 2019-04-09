@@ -28,7 +28,8 @@ public class Prosjekt {
 	
 	@Override
 	public String toString() {
-		return "Prosjekt \nProsjektId=" + prosjektId + ", navn=" + navn + ", beskrivelse=" + beskrivelse + ", deltagere="
+		return "Prosjekt \nProsjektId: " + prosjektId + "\nNavn: " + navn + "\nBeskrivelse=" 
+				+ beskrivelse + "\nDeltagere:"
 				+ deltagere + "\n";
 	}
 

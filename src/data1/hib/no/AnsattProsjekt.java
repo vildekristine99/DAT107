@@ -85,8 +85,8 @@ public class AnsattProsjekt {
 
 	@Override
 	public String toString() {
-		return "AnsattProsjekt [ansattProsjektId=" + ansattProsjektId + ", timer=" + timer + ", rolle=" + rolle
-				+ ", ansatt=" + ansatt + ", prosjekt=" + prosjekt + "\n";
+		return "AnsattProsjekt \nAnsattProsjektId: " + ansattProsjektId + "\nTimer: " + timer + "\nRolle: " + rolle
+				+ "\nAnsatt: " + ansatt + "\nProsjekt: " + prosjekt + "\n";
 	}
 }
 

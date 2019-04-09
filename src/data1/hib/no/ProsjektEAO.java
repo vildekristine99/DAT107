@@ -91,23 +91,14 @@ public class ProsjektEAO {
 		}
 	}
 	
-	public void utskriftProsjekter(int prosjektId) {
+	public void utskriftProsjekt(int prosjektId) {
 		EntityManager em = emf.createEntityManager();
-		EntityTransaction tx = em.getTransaction();
 		//Utskrift av info om prosjekt, inkl. liste av deltagere med rolle og timer, og totalt timetall for prosjektet
 		Prosjekt prosjekt = em.find(Prosjekt.class, prosjektId);
 		
 		
 		try {
-			tx.begin();
-			
-			tx.commit();
-
-		} catch (Throwable e) {
-			e.printStackTrace();
-			if (tx.isActive()) {
-				tx.rollback();
-			}
+			System.out.println(prosjekt.toString());
 		} finally {
 			em.close();
 		}
