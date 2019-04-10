@@ -33,6 +33,8 @@ public class AvdelingEAO {
 			if(ansatt.getAnsattId() != finnAvdelingMedId(ansatt.getAvdelingId()).getSjefId()) {
 				ansatt.setAvdelingId(avdelingId);
 				em.merge(ansatt);
+			} else {
+				System.out.println();
 			}
 			tx.commit();
 		} catch (Throwable e) {
@@ -53,8 +55,6 @@ public class AvdelingEAO {
 		try {
 			tx.begin();
 			em.persist(avdeling);
-			Ansatt ansatt = ansattEAO.finnAnsattMedId(avdeling.getSjefId());
-			ansattEAO.oppdaterAvdeling(ansatt, avdeling.getAvdelingId());
 			tx.commit();
 
 		} catch (Throwable e) {

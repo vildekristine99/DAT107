@@ -73,7 +73,7 @@ public class Avdeling {
 	@Override
 	public String toString() {
 		return "Avdeling \nAvdelingId: " + avdelingId + "\nNavn: " + navn + "\nSjefId: " + sjefId + "\n"
-				+ "Sjef:\n" + ansatt.getFornavn() + " " + ansatt.getEtternavn()
+				+ "Sjef:\n" + ansatt.getFornavn().toString() + " " + ansatt.getEtternavn().toString()
 				+ "\nAnsatte:\n" + ansatte + "\n\n";
 	}
 	

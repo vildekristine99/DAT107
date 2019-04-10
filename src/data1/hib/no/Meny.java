@@ -35,13 +35,14 @@ public class Meny {
 				+ "4. Oppdatere en ansatt sin stilling\n"
 				+ "5. Legge inn en ny ansatt\n"
 				+ "6. Søk etter avdeling med avdelingsid\n"
-				+ "7. Oppdater en ansatt sin avdeling\n"
-				+ "8. Legg til avdeling\n"
-				+ "9. Legg til prosjekt\n"
-				+ "10. Registrer prosjektdeltagelse\n"
-				+ "11. Føre timer til ansatt i prosjekt\n"
-				+ "(12. Utskrift av infor om Prosjekt\n"
-				+ "13. Avslutt";
+				+ "7. Utskrift Avdeling\n"
+				+ "8. Oppdater en ansatt sin avdeling\n"
+				+ "9. Legg til avdeling\n"
+				+ "10. Legg til prosjekt\n"
+				+ "11. Registrer prosjektdeltagelse\n"
+				+ "12. Føre timer til ansatt i prosjekt\n"
+				+ "13. Utskrift av infor om Prosjekt\n"
+				+ "14. Avslutt";
 		
 		System.out.println(meny);
 		int menyvalg = sc.nextInt();
@@ -104,10 +105,17 @@ public class Meny {
 			int avdelingId = sc.nextInt();	
 			sc.nextLine();
 			av = avdelingEAO.finnAvdelingMedId(avdelingId);
+			break;
+		
+		case 7: 
+			System.out.println("AvdelingsID: ");
+			int avdelingId2 = sc.nextInt();	
+			sc.nextLine();
+			av = avdelingEAO.finnAvdelingMedId(avdelingId2);
 			System.out.println(av);
 			break;
 			
-		case 7:
+		case 8:
 			System.out.println("Ansatt sin ID: ");
 			int id4 = sc.nextInt();
 			sc.nextLine();
@@ -118,7 +126,7 @@ public class Meny {
 			avdelingEAO.oppdaterAvdelingAnsatt(a, nyAvdeling);
 			break;
 		
-		case 8:
+		case 9:
 			System.out.println("Avdelingsnavn: ");
 			String aNavn = sc.nextLine();
 			System.out.println("Sjefid: ");
@@ -138,7 +146,7 @@ public class Meny {
 			}
 			break;
 			
-		case 9:
+		case 10:
 			System.out.println("Navn: ");
 			String navn = sc.nextLine();
 			System.out.println("Beskrivelse: ");
@@ -146,7 +154,7 @@ public class Meny {
 			prosjektEAO.leggTilProsjekt(navn, beskrivelse);
 			break;
 			
-		case 10:
+		case 11:
 			System.out.println("AnsattID: ");
 			int ansattId = sc.nextInt();
 			sc.nextLine();
@@ -161,7 +169,7 @@ public class Meny {
 			prosjektEAO.registrerProsjektdeltagelse(ansattId, prosjektId, timer, rolle);
 			break;
 		
-		case 11:
+		case 12:
 			System.out.println("Timer: ");
 			int timer2 = sc.nextInt();
 			sc.nextLine();
@@ -171,7 +179,7 @@ public class Meny {
 			prosjektEAO.foerTimer(timer2, ansattProsjektId);
 			break;
 			
-		case 12:
+		case 13:
 			System.out.println("ProsjektId: ");
 			int prosjektid = sc.nextInt();
 			sc.nextLine();
@@ -179,7 +187,7 @@ public class Meny {
 			prosjektEAO.utskriftProsjekt(prosjektid);
 			break;
 			
-		case 13: 
+		case 14: 
 			String melding = "Avslutter programmet";
 			System.out.println(melding);
 			run = false;

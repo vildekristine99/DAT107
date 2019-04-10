@@ -86,7 +86,7 @@ public class AnsattProsjekt {
 	@Override
 	public String toString() {
 		return "AnsattProsjekt \nAnsattProsjektId: " + ansattProsjektId + "\nTimer: " + timer + "\nRolle: " + rolle
-				+ "\nAnsatt: " + ansatt + "\nProsjekt: " + prosjekt + "\n";
+				+ "\nAnsatt: "+ansatt.getFornavn()+ " " + ansatt.getEtternavn() + "\nProsjekt: " + prosjekt.getNavn() + "\n";
 	}
 }
 

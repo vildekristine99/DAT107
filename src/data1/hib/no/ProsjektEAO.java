@@ -95,6 +95,8 @@ public class ProsjektEAO {
 		EntityManager em = emf.createEntityManager();
 		//Utskrift av info om prosjekt, inkl. liste av deltagere med rolle og timer, og totalt timetall for prosjektet
 		Prosjekt prosjekt = em.find(Prosjekt.class, prosjektId);
+		prosjekt.getBeskrivelse();
+		prosjekt.getNavn();
 		
 		
 		try {
