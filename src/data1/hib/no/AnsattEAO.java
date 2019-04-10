@@ -111,37 +111,7 @@ public class AnsattEAO {
 		}
 	}
 	
-	public void oppdaterAvdeling(Ansatt ansatt, int avdelingId) {
-		EntityManager em = emf.createEntityManager();
-		EntityTransaction tx = em.getTransaction();
-		
-		Avdeling gammelAvdeling = em.find(Avdeling.class, ansatt.getAvdelingId());
-		AvdelingEAO avdelingEAO = new AvdelingEAO();
-		Avdeling nyAvdeling = avdelingEAO.finnAvdelingMedId(avdelingId);
-		
-		try {
-			if(ansatt.getAnsattId() != gammelAvdeling.getSjefId() ) {//(ansatt != null) && 
-				tx.begin();
-				gammelAvdeling.fjernAnsatte(ansatt);
-				ansatt.setAvdelingId(avdelingId);
-				nyAvdeling.leggtilAnsatte(ansatt);
-				em.merge(ansatt);
-				em.merge(gammelAvdeling);
-				em.merge(nyAvdeling);
-				tx.commit();
-			} else {
-				System.out.println("Kan ikke vere sjef i to ulike avdelinger");
-			}
-		}catch(Throwable e) {
-			e.printStackTrace();
-			if (tx.isActive()) {
-				tx.rollback();
-			}
-		}finally {
-			em.close();
-		}
-		
-	}
+	
 	
 	
 }
