@@ -139,7 +139,7 @@ public class Meny {
 				avd.setNavn(aNavn);
 				avd.setSjefId(sjefId);
 				avdelingEAO.leggTilAvdeling(avd);
-				ansattEAO.oppdaterAvdeling(a, avd.getAvdelingId());
+				avdelingEAO.oppdaterAvdeling(a, avd.getAvdelingId());
 			} else {
 				System.out.println("Ansatt eksisterer ikke eller er sjef fra før");
 				break;
